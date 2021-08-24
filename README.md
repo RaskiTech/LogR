@@ -1,12 +1,12 @@
-# LogR
+# LogR [![License](https://img.shields.io/github/license/RaskiTech/LogR.svg)](https://github.com/RaskiTech/LogR/blob/master/LICENSE)
  
 A lightweight single-header logging library for C++. Nothing more, nothing less. Supports formatting.
 
 License: MIT License
 
-# Usage
+# Examle
 
-'''
+```
 main() {
     LogR::Logger logger;
     logger.SetPrefix("[MyLogger]");
@@ -18,11 +18,11 @@ main() {
 	
 	engineLogger.Error( LogR::Format("%.2f", 3.14159), "is pi with 2 decimals." ); // 3.14 is pi with 2 decimals.
 }
-'''
+```
 
 # Extensions
 
-If you have some supported libraries installed, you can log their types by defining following defines before including the library, or you can just define them at the top of the file. You can also log your own types by overriding the 'void Log::TypeToString(std::ostream& os, T& type)' for your type.
+If you have some supported libraries installed, you can log their types by defining following defines before including the library, or you can just define them at the top of the file. You can also log your own types by overriding the `void Log::TypeToString(std::ostream& os, T& type)` for your type.
 
 Include glm types:
 LOGR_INCLUDE_GLM_TYPES

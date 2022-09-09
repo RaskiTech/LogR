@@ -1,6 +1,6 @@
 # LogR [![License](https://img.shields.io/github/license/RaskiTech/LogR.svg)](https://github.com/RaskiTech/LogR/blob/master/LICENSE)
  
-A lightweight single-header logging library for C++. Nothing more, nothing less. Supports formatting.
+A lightweight single-header logging library for C++. Nothing more, nothing less. Supports formatting. You can have multiple logger instances.
 
 License: MIT License
 
@@ -11,18 +11,18 @@ main() {
     LogR::Logger logger;
     logger.SetPrefix("[MyLogger]");
     
-	engineLogger.Log("This is logging and", 4 - 1, "is a number."); // This is logging and 3 is a number.
+    logger.Log("This is logging and", 4 - 1, "is a number."); // [MyLogger] This is logging and 3 is a number.
 
-	const char* amount = "many";
-	engineLogger.Warning("There are", amount, "warnings."); // There are many warnings.
-	
-	engineLogger.Error( LogR::Format("%.2f", 3.14159), "is pi with 2 decimals." ); // 3.14 is pi with 2 decimals.
+    const char* amount = "many";
+    logger.Warning("There are", amount, "warnings."); // [MyLogger] There are many warnings.
+    
+    logger.Error( LogR::Format("%.2f", 3.14159), "is pi with 2 decimals." ); // [MyLogger] 3.14 is pi with 2 decimals.
 }
 ```
 
 # Extensions
 
-If you have some supported libraries installed, you can log their types by defining following defines before including the library, or you can just define them at the top of the file. You can also log your own types by overriding the `void LogR::TypeToString(std::ostream& os, T& type)` for your type.
+If you have some supported libraries (below) installed, you can log their types by defining following definitions before including the library or at the top of this header file. You can log your own types by overriding the function `void LogR::TypeToString(std::ostream& os, T& type)` for your type.
 
 Include glm types:
 LOGR_INCLUDE_GLM_TYPES

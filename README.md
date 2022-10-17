@@ -22,7 +22,7 @@ main() {
 
 # Extensions
 
-If you have some supported libraries (below) installed, you can log their types by defining following definitions before including the library or at the top of this header file. You can log your own types by overriding the function `void LogR::TypeToString(std::ostream& os, T& type)` for your type.
+If you have some supported libraries (below) installed, you can log their types by defining following definitions before including the library or at the top of this header file. You can also log your own types by overriding the main function with `template<> inline void LogR::Logger::TypeToString(std::ostream& os, T& type)`, where T is your type. In the function append your text to the ostream. `os << "MyData";` for example. 
 
 Include glm types:
 LOGR_INCLUDE_GLM_TYPES
